@@ -1,8 +1,12 @@
 package com.example.controller;
 
+import com.example.gifDao.GifRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 /**
  * Created by Macu on 2017-03-31.
@@ -10,11 +14,25 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class GifController {
 
-    @GetMapping("/")
-public String listGifs(){
+    @Autowired
+    private GifRepository gifReposytory;
+
+
+    @RequestMapping("/")
+    private String listGifs(){
         return "home";
     }
-    @PostMapping
+
+
+    @RequestMapping("/gif/(name)")
+    public String gif(ModelMap modelMap) {
+       List<Gif> allGifs = gifReposytory.getAllGifs();
+        modelMap.put("gifs", allGifs);
+        return "home";
+    }
+
+
+    @RequestMapping
     public String gifDetails(ModelMap modelMap) {
         Gif gif = new Gif("compiler-bot", "michalos", true);
         modelMap.put("gif", gif);
