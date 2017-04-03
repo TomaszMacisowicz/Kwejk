@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" th:href="@{/vendor/materialize/css/materialize.css}" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <link rel="stylesheet" th:href="@{/app.css}" />
+    <link rel="stylesheet" th:href="@{/vendor/app.css}" />
 
     <title th:text="'giflib | ' + ${gif.name}">Kwejk</title>
 </head>
@@ -58,7 +58,7 @@
                     </div>
                         <div class="col s9">
 
-                            <h4 th:text="${gif.username}"/>
+                            <h4 th:text="${gif.username}"></h4>
 
                     </div>
                 </div>
