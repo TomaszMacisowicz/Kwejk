@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" th:href="@{/vendor/materialize/css/materialize.css}" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <link rel="stylesheet" th:href="@{/vendor/app.css}" />
+    <link rel="stylesheet" th:href="@{/app.css}" />
 
     <title th:text="'giflib | ' + ${gif.name}">Kwejk</title>
 </head>
@@ -56,10 +56,8 @@
                     <div class="col s3">
                         <img class="circle" src="http://api.adorable.io/avatars/205/avatar" alt="avatar" />
                     </div>
-                        <div class="col s9">
-
-                            <h4 th:text="${gif.username}"></h4>
-
+                    <div class="col s9">
+                        
                     </div>
                 </div>
             </div>

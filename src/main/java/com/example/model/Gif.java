@@ -1,4 +1,4 @@
-package com.example.controller;
+package com.example.model;
 
 /**
  * Created by Macu on 2017-03-31.
