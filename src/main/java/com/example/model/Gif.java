@@ -4,10 +4,35 @@ package com.example.model;
  * Created by Macu on 2017-03-31.
  */
 public class Gif {
-    public Gif(String name, String surname, boolean favorite) {
+
+    private String name;
+    private String username;
+
+    private boolean favorite;
+
+    private int categoryId;
+
+    public int getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public Gif(){}
+
+    public Gif(String name, String username, boolean favorite) {
         this.name = name;
-        this.surname = surname;
+        this.username = username;
         this.favorite = favorite;
+    }
+
+    public Gif(String name, String username, boolean favorite, int categoryId) {
+        this.name = name;
+        this.username = username;
+        this.favorite = favorite;
+        this.categoryId = categoryId;
     }
 
     public String getName() {
@@ -18,12 +43,12 @@ public class Gif {
         this.name = name;
     }
 
-    public String getSurname() {
-        return surname;
+    public String getUsername() {
+        return username;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public boolean isFavorite() {
@@ -33,8 +58,4 @@ public class Gif {
     public void setFavorite(boolean favorite) {
         this.favorite = favorite;
     }
-
-    private String name;
-    private String surname;
-    private boolean favorite;
 }

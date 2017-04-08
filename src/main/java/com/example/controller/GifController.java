@@ -1,11 +1,14 @@
 package com.example.controller;
 
+
+
 import com.example.gifDao.GifRepository;
 import com.example.model.Gif;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -19,25 +22,26 @@ public class GifController {
     private GifRepository gifReposytory;
 
 
-    @RequestMapping("/")
-    private String listGifs(){
+    @GetMapping("/")
+    public String listGifs(ModelMap modelMap) {
+        modelMap.addAttribute("gifs", gifReposytory.getAllGifs());
         return "home";
     }
 
 
-    @RequestMapping("/gif/(name)")
-    public String gif(ModelMap modelMap) {
-       List<Gif> allGifs = gifReposytory.getAllGifs();
-        modelMap.put("gifs", allGifs);
-        return "home";
+    @GetMapping("/favorites")
+    public String getFavorites(ModelMap modelMap) {
+        modelMap.addAttribute("gifs", gifReposytory.getFavorites());
+        return "favorites";
     }
 
 
-    @RequestMapping
-    public String gifDetails(ModelMap modelMap) {
-        Gif gif = new Gif("compiler-bot", "michalos", true);
-        modelMap.put("gif", gif);
+    @GetMapping("/gif/{name}")
+    public String gifDetails(@PathVariable String name, ModelMap modelMap) {
+        Gif gif = gifReposytory.findByName(name);
+        modelMap.addAttribute("gif", gif);
         return "gif-details";
     }
 
 }
+
