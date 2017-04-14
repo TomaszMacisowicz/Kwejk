@@ -1,13 +1,11 @@
 package com.example.gifDao;
 
-
 import com.example.model.Gif;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
 
 @Component
 public class GifRepository {
@@ -27,8 +25,9 @@ public class GifRepository {
     public List<Gif> getFavorites() {
         List<Gif> gifs = new ArrayList<>();
         for (Gif gif : ALL_GIFS) {
-            if (gif.isFavorite())
+            if (gif.isFavorite()) {
                 gifs.add(gif);
+            }
         }
         return gifs;
     }
@@ -45,12 +44,11 @@ public class GifRepository {
     public List<Gif> findById(Integer id) {
         List<Gif> gifs = new ArrayList<>();
         for (Gif gif : ALL_GIFS) {
-            if (gif.getCategoryId() == id)
+            if (gif.getCategoryId() == id) {
                 gifs.add(gif);
+            }
         }
         return gifs;
     }
 
 }
-
-

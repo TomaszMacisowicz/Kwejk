@@ -18,6 +18,7 @@ import java.util.Locale;
  */
 @Controller
 public class CategoryController {
+
     @Autowired
     CategoryRepository categoryRepository;
     @Autowired

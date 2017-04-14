@@ -20,7 +20,8 @@ public class Gif {
         this.categoryId = categoryId;
     }
 
-    public Gif(){}
+    public Gif() {
+    }
 
     public Gif(String name, String username, boolean favorite) {
         this.name = name;

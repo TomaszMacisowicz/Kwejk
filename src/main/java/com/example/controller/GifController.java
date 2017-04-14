@@ -1,7 +1,5 @@
 package com.example.controller;
 
-
-
 import com.example.gifDao.GifRepository;
 import com.example.model.Gif;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,20 +19,17 @@ public class GifController {
     @Autowired
     private GifRepository gifReposytory;
 
-
     @GetMapping("/")
     public String listGifs(ModelMap modelMap) {
         modelMap.addAttribute("gifs", gifReposytory.getAllGifs());
         return "home";
     }
 
-
     @GetMapping("/favorites")
     public String getFavorites(ModelMap modelMap) {
         modelMap.addAttribute("gifs", gifReposytory.getFavorites());
         return "favorites";
     }
-
 
     @GetMapping("/gif/{name}")
     public String gifDetails(@PathVariable String name, ModelMap modelMap) {
@@ -44,4 +39,3 @@ public class GifController {
     }
 
 }
-
